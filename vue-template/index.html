@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Template</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <style>
+    .normal {
+      color: blue;
+    }
+
+    .active {
+      color: red;
+    }
+  </style>
+
+  <div id="app">
+    <div>{{ msgA }}</div>
+    <div :class="className" @click="changeClassName">
+      {{ msgB }}
+    </div>
+    <div v-html="msg"></div>
+    <div>{{ number + 2 }}</div>
+    <div>{{ new Date }}</div>
+    <div>{{ Math.round(1.7) }}</div>
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msgA: 'Hello Vue! <br/> Good job~',
+        msgB: 'Hello Jwooni',
+        className: 'normal',
+        number: 2
+      },
+      methods: {
+        changeClassName() {
+          this.className = 'active'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
